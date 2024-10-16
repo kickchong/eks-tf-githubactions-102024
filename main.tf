@@ -1,9 +1,3 @@
-#tfsec:ignore:aws-eks-no-public-cluster-access
-#tfsec:aws-eks-no-public-cluster-access-to-cidr
-#tfsec:aws-ec2-no-public-egress-sgr
-#tfsec:aws-eks-enable-control-plane-logging
-#tfsec:aws-ec2-require-vpc-flow-logs-for-all-vpcs
-
 
 provider "aws" {
   region = var.region
