@@ -8,6 +8,12 @@ terraform {
   #     name = "learn-terraform-eks"
   #   }
   # }
+  backend "s3" {
+    bucket         = "albert-terraform-state-102024"
+    region         = "us-west-1"
+    key            = "s3-github-actions/terraform.tfstate"
+    encrypt        = true
+  }
 
   required_providers {
     aws = {
