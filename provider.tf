@@ -39,13 +39,12 @@ terraform {
   required_version = "~> 1.3"
 }
 
-
-# provider "aws" {
-#     region = "us-west-1"
-#     default_tags {
-#     tags = {
-#         Managedby               = "Albert EKS 10/2024"
-#         TerraformWorkspace      = terraform.workspace
-#     }
-#   }
-# }
+provider "aws" {
+    region = "us-west-1"
+    default_tags {
+    tags = {
+        Managedby               = "Albert EKS 10/2024"
+        TerraformWorkspace      = terraform.workspace
+    }
+  }
+}
