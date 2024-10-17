@@ -7,8 +7,8 @@ variable "region" {
   default     = "us-west-1"
 }
 
-variable "cluster_name" {
-  type        = string
-  default = "tf-eks-102024"
+# variable "cluster_name" {
+#   type        = string
+#   default = "tf-eks-102024"
   
-}
+# }
