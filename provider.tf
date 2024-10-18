@@ -1,17 +1,9 @@
-# Copyright (c) HashiCorp, Inc.
-# SPDX-License-Identifier: MPL-2.0
-
 terraform {
 
-  # cloud {
-  #   workspaces {
-  #     name = "learn-terraform-eks"
-  #   }
-  # }
   backend "s3" {
     bucket         = "albert-terraform-state-102024"
     region         = "us-west-1"
-    key            = "s3-github-actions/terraform.tfstate"
+    key            = "eks-tf-githubactions-102024/terraform.tfstate"
     encrypt        = true
   }
 

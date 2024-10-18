@@ -18,3 +18,12 @@ Requirements:
 5. Implement basic security measures (e.g., use of IAM roles, security groups, network ACLs).
 
 7. Include a GitHub Actions workflow or GitLab CI/CD pipeline to deploy the infrastructure and application.
+
+Actions:
+
+Use Terraform / Github Action to complete the task
+
+1. provider.tf: Define provider info and define TF state files s3 location.
+2. vpc.tf: Establish Network(VPC/Subnet/Internet Gateway/NAT) for the project.
+3. eks.tf: Establish EKS cluster.
+4. deploy.yml/cleanup.yml: Github action CI/CD for deployment and cleanup.

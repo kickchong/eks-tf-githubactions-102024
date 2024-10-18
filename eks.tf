@@ -1,6 +1,6 @@
 locals {
 #  cluster_name = var.cluster_name
-  cluster_name = "tf-eks-${random_string.suffix.result}"
+  cluster_name = "eks-tf-githubactions-${random_string.suffix.result}"
 
 }
 
