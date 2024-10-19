@@ -10,3 +10,9 @@ data "aws_availability_zones" "available" {
     values = ["opt-in-not-required"]
   }
 }
+
+
+variable "appname" {
+  type        = string
+  default     = "hellome"
+}

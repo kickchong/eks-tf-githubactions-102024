@@ -21,9 +21,13 @@ Requirements:
 
 Actions:
 
+Preprerequisite:  
+I created S3 bucket for terraform state files storage. (albert-terraform-state-102024)   I create manually. I can also create it use another terraform script.  This bucket can also use by other projects/tasks for terrafrom state logs storage such as vpc-peering-ec2-102024 tasks.  
+
 Use Terraform / Github Action to complete the task
 
 1. provider.tf: Define provider info and define TF state files s3 location.
 2. vpc.tf: Establish Network(VPC/Subnet/Internet Gateway/NAT) for the project.
 3. eks.tf: Establish EKS cluster.
 4. deploy.yml/cleanup.yml: Github action CI/CD for deployment and cleanup.
+5. ecr.tf is used for preprerequisite of application deployment task such as app-eks-githubaction-102024 tasks. 
