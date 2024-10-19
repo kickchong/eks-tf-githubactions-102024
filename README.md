@@ -17,6 +17,8 @@ Requirements:
 
 5. Implement basic security measures (e.g., use of IAM roles, security groups, network ACLs).
 
+6. Set up a simple CloudWatch alarm for cluster metrics
+
 7. Include a GitHub Actions workflow or GitLab CI/CD pipeline to deploy the infrastructure and application.
 
 Actions:
@@ -29,5 +31,6 @@ Use Terraform / Github Action to complete the task
 1. provider.tf: Define provider info and define TF state files s3 location.
 2. vpc.tf: Establish Network(VPC/Subnet/Internet Gateway/NAT) for the project.
 3. eks.tf: Establish EKS cluster.
-4. deploy.yml/cleanup.yml: Github action CI/CD for deployment and cleanup.
-5. ecr.tf is used for preprerequisite of application deployment task such as app-eks-githubaction-102024 tasks. 
+4. cloudwatch.tf: setup cloudwatch alarm
+5. deploy.yml/cleanup.yml: Github action CI/CD for deployment and cleanup.
+6. ecr.tf is used for preprerequisite of application deployment task such as app-eks-githubaction-102024 tasks. 
