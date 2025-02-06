@@ -25,7 +25,7 @@
 
 
 resource "aws_vpc" "v21qw1" {
-    cidr_block = "10.224.16.0/16"
+    cidr_block = "10.224.0.0/16"
     enable_dns_support = "true"
     enable_dns_hostnames = "true"
     tags = {
