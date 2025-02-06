@@ -80,9 +80,9 @@ resource "aws_s3_bucket" "vpc_flow_logs" {
         target_bucket = "terraform-albert1"
     }
 
-  lifecycle {
-    prevent_destroy = true
-  }
+  # lifecycle {
+  #   prevent_destroy = true
+  # }
 
   server_side_encryption_configuration {
      rule {
