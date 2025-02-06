@@ -24,6 +24,7 @@
 # }
 
 
+
 resource "aws_vpc" "v21qw1" {
     cidr_block = "10.224.0.0/16"
     enable_dns_support = "true"
@@ -46,7 +47,7 @@ resource "aws_subnet" "westwebsub" {
     count = "${length(data.aws_availability_zones.available.names)}"
     vpc_id = aws_vpc.v21qw1.id
     cidr_block = "10.64.${count.index}.0/24"
-    map_public_ip_on_launch = "true"
+    map_public_ip_on_launch = "false"
     availability_zone = "${element(data.aws_availability_zones.available.names,count.index)}"
 
     tags = {
@@ -66,3 +67,30 @@ resource "aws_subnet" "westwebsub" {
 #          Name = "public-${element(data.aws_availability_zones.eastzone.names, count.index)}"
 #     }
 # }
+
+# VPC flow logs
+resource "aws_s3_bucket" "vpc_flow_logs" {
+  bucket = "vpc-flow-logs-book"
+
+  versioning {
+    enabled = true
+  }
+
+  lifecycle {
+    prevent_destroy = true
+  }
+}
+
+resource "aws_flow_log" "appsec-preprod" {
+  log_destination      = aws_s3_bucket.vpc_flow_logs.arn
+  log_destination_type = "s3"
+  traffic_type         = "ALL"
+  vpc_id               = aws_vpc.v21qw1.id
+
+  # Enable the new meta fields
+  log_format = "$${version} $${vpc-id} $${subnet-id} $${instance-id} $${interface-id} $${account-id} $${type} $${srcaddr} $${dstaddr} $${srcport} $${dstport} $${protocol} $${packets} $${bytes} $${start} $${end} $${action} $${tcp-flags}"
+
+  tags = {
+    Name = "vpc_flow_logs"
+  }
+}
