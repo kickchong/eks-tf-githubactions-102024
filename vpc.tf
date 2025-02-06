@@ -43,14 +43,14 @@ resource "aws_vpc" "v21qw1" {
 # }
 
 resource "aws_subnet" "westwebsub" {
-    count = "${length(data.aws_availability_zones.vailable.names)}"
+    count = "${length(data.aws_availability_zones.available.names)}"
     vpc_id = aws_vpc.v21qw1.id
     cidr_block = "10.64.${count.index}.0/24"
     map_public_ip_on_launch = "true"
-    availability_zone = "${element(data.aws_availability_zones.vailable.names,count.index)}"
+    availability_zone = "${element(data.aws_availability_zones.available.names,count.index)}"
 
     tags = {
-         Name = "public-${element(data.aws_availability_zones.vailable.names, count.index)}"
+         Name = "public-${element(data.aws_availability_zones.available.names, count.index)}"
     }
 }
 
