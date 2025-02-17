@@ -76,9 +76,9 @@ resource "aws_s3_bucket" "vpc_flow_logs" {
   #   enabled = true
   # }
 
-  # logging {
-  #       target_bucket = "terraform-albert1"
-  #   }
+  logging {
+        target_bucket = "terraform-albert1"
+    }
 
   # lifecycle {
   #   prevent_destroy = true
