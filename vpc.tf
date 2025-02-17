@@ -88,6 +88,7 @@ resource "aws_s3_bucket_logging" "example" {
 #  target_bucket = aws_s3_bucket.log_bucket.id
 #  target_prefix = "log/"
  target_bucket = "terraform-albert1"
+ target_prefix = "log/"
 
 }
 
