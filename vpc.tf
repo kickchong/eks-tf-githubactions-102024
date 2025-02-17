@@ -72,13 +72,13 @@ resource "aws_subnet" "westwebsub" {
 resource "aws_s3_bucket" "vpc_flow_logs" {
   bucket = "vpc-flow-logs-book"
 
-  versioning {
-    enabled = true
-  }
+  # versioning {
+  #   enabled = true
+  # }
 
-  logging {
-        target_bucket = "terraform-albert1"
-    }
+  # logging {
+  #       target_bucket = "terraform-albert1"
+  #   }
 
   # lifecycle {
   #   prevent_destroy = true
