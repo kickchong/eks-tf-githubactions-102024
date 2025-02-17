@@ -76,22 +76,19 @@ resource "aws_s3_bucket" "vpc_flow_logs" {
   #   enabled = true
   # }
 
-  logging {
-        target_bucket = "terraform-albert1"
-    }
+  # logging {
+  #       target_bucket = "terraform-albert1"
+  #   }
 
-  # lifecycle {
-  #   prevent_destroy = true
-  # }
+}
 
-  # server_side_encryption_configuration {
-  #    rule {
-  #      apply_server_side_encryption_by_default {
-  #        kms_master_key_id = "arn"
-  #        sse_algorithm     = "aws:kms"
-  #      }
-  #    }
-  #  }
+resource "aws_s3_bucket_logging" "example" {
+  bucket = aws_s3_bucket.vpc_flow_logs.id
+
+#  target_bucket = aws_s3_bucket.log_bucket.id
+#  target_prefix = "log/"
+ target_bucket = "terraform-albert1"
+
 }
 
 resource "aws_s3_bucket_versioning" "versioning_example" {
